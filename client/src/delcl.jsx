@@ -33,7 +33,7 @@ function Delcl(props) {
         }
     
         axios
-          .post("http://localhost:3000/devicecheck", { id: formdata.mac })
+          .post("http://localhost:3001/devicecheck", { id: formdata.mac })
           .then((res) => {
             if (res.data != "Ok") {
               setMessage("Device found. Are you sure you want to delete this?");
@@ -50,7 +50,7 @@ function Delcl(props) {
           });
       };
       function deleteit(){
-        axios.post("http://localhost:3000/delete-client",{id:formdata.username}).then((res)=>{
+        axios.post("http://localhost:3001/delete-client",{id:formdata.username}).then((res)=>{
           setdone(1);
         }).catch((err)=>{setdone(0);console.log(err)})
       }
