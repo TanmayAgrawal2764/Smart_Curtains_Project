@@ -22,13 +22,13 @@ function View(props) {
   }
   useEffect(()=>{
     if(check!=-1){
-    axios.post("http://localhost:3000/change",{st:check,id:props.id_view}).then((res)=>{
+    axios.post("http://localhost:3001/change",{st:check,id:props.id_view}).then((res)=>{
     }).catch((err)=>{console.log(err);});
   }
   },[check]);
 
   useEffect(() => {
-    axios.post("http://localhost:3000/find", props).then((res) => {
+    axios.post("http://localhost:3001/find", props).then((res) => {
       setdata(res.data);
     });
   }, [ref]);
