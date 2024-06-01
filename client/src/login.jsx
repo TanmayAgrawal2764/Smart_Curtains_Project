@@ -79,8 +79,8 @@ function Login(props) {
               </a>
             </div>
             <span>or use your email for registration</span>
-            <input type="email" placeholder="Email" name="Enter: client" value={clientinput.username} onChange={fillmee}/>
-            <input type="password" placeholder="Password" name="Enter: client@123" value={clientinput.password} onChange={fillmee}/>
+            <input type="email" placeholder="Enter username: admin" name="username" value={clientinput.username} onChange={fillmee}/>
+            <input type="password" placeholder="Enter Password: admin@123" name="password" value={clientinput.password} onChange={fillmee}/>
             <button id="Client" onClick={enter}>Sign In</button>
           </form>
         </div>
@@ -99,8 +99,8 @@ function Login(props) {
               </a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" name="Enter : admin" value={userinput.username} onChange={fillme}/>
-            <input type="password" placeholder="Password" name="Enter : admin@123" value={userinput.password} onChange={fillme}/>
+            <input type="email" placeholder="Enter username: client" name="username" value={userinput.username} onChange={fillme}/>
+            <input type="password" placeholder="Enter password: client@123" name="password" value={userinput.password} onChange={fillme}/>
             <a>Forgot your password?</a>
             <button id="Admin" onClick={enter}>Sign In</button>
           </form>
