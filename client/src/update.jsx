@@ -41,14 +41,14 @@ function Update(props) {
 
   const fetchDistricts = (value) => {
     axios
-      .post("http://localhost:3000/get-dist", { dis_name: value })
+      .post("http://localhost:3001/get-dist", { dis_name: value })
       .then((res) => {
         setDistrict(res.data);
       });
   };
 
   const fetchClients = (value) => {
-    axios.get("http://localhost:3000/client-select").then((res) => {
+    axios.get("http://localhost:3001/client-select").then((res) => {
       const filteredClients = res.data.filter((name) =>
         name.toLowerCase().includes(value.toLowerCase())
       );
@@ -57,7 +57,7 @@ function Update(props) {
   };
 
   const fetchLocations = (value) => {
-    axios.get("http://localhost:3000/location-select").then((res) => {
+    axios.get("http://localhost:3001/location-select").then((res) => {
       const filteredLocations = res.data.filter((name) =>
         name.toLowerCase().includes(value.toLowerCase())
       );
@@ -67,7 +67,7 @@ function Update(props) {
 
   const fetchCities = (value) => {
     axios
-      .post("http://localhost:3000/get-cities", { name: value })
+      .post("http://localhost:3001/get-cities", { name: value })
       .then((res) => {
         setCity(res.data.results);
       });
@@ -81,7 +81,7 @@ function Update(props) {
     }
 
     axios
-      .post("http://localhost:3000/devicecheck", { id: formdata.mac })
+      .post("http://localhost:3001/devicecheck", { id: formdata.mac })
       .then((res) => {
         if (res.data != "Ok") {
           setMessage("Device found. You can update the details.");
@@ -119,13 +119,13 @@ function Update(props) {
       return;
     }
     else{
-      axios.post("http://localhost:3000/add-data",formdata).then((res)=>{
+      axios.post("http://localhost:3001/add-data",formdata).then((res)=>{
 
       }).catch((err)=>{setMessage("Some Error Occurred")})
     }
     setMessage("Device updated successfully.");
     // axios
-    //   .post("http://localhost:3000/update-device", { mac, client, city, district, location })
+    //   .post("http://localhost:3001/update-device", { mac, client, city, district, location })
     //   .then((res) => {
     //     setMessage(res.data.message || "Device updated successfully.");
     //   })
