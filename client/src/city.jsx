@@ -8,7 +8,7 @@ function City(props) {
   var ds = props.ds;
   useEffect(()=>{
     
-    axios.get("http://localhost:3000/city-select").then((res) => {
+    axios.get("http://localhost:3001/city-select").then((res) => {
       setdata(res.data);
     });
   },[]);
