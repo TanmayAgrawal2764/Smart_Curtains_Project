@@ -8,7 +8,7 @@ function District(props) {
   }
   useEffect(() => {
       axios
-        .get("http://localhost:3000/district-select")
+        .get("http://localhost:3001/district-select")
         .then((res) => {
           setdata(res.data);
         });
