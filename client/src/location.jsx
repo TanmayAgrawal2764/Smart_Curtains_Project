@@ -7,7 +7,7 @@ function Location(props) {
     props.change(event.target.id, event.target.value);
   }
   useEffect(()=>{
-    axios.get("http://localhost:3000/location-select").then((res) => {
+    axios.get("http://localhost:3001/location-select").then((res) => {
       setdata(res.data);
     });
   },[]);
