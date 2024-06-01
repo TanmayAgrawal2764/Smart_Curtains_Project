@@ -11,16 +11,16 @@ function SensorCard(props) {
   useEffect(() => {
     if(props.login=="Client" || props.login=="Admin"){
     document.getElementById("all").checked = true;
-    axios.post("http://localhost:3000/device-select", props).then((res) => {
+    axios.post("http://localhost:3001/device-select", props).then((res) => {
       setstat([]);
       setstatcpy([]);
       // console.log(props,stat,statcpy);
       res.data.map((ele) => {
         axios
-          .post("http://localhost:3000/find", { id_view: ele["uniqueId"] })
+          .post("http://localhost:3001/find", { id_view: ele["uniqueId"] })
           .then((resu) => {
             if(resu.data[0]!=null){
-              axios.post("http://localhost:3000/checki",{id:ele["uniqueId"]}).then((nres)=>{
+              axios.post("http://localhost:3001/checki",{id:ele["uniqueId"]}).then((nres)=>{
                 setstat((prev) => {
                   return [
                     ...prev,
@@ -57,13 +57,13 @@ function SensorCard(props) {
     }
   }
   function chitst(event){
-    axios.post("http://localhost:3000/checki",{id:event.target.id}).then((res)=>{
+    axios.post("http://localhost:3001/checki",{id:event.target.id}).then((res)=>{
       if(res.data=="ON"){
         if(event.target.checked==false){
-          axios.post("http://localhost:3000/change",{id:event.target.id,st:0})
+          axios.post("http://localhost:3001/change",{id:event.target.id,st:0})
         }
         else{
-          axios.post("http://localhost:3000/change",{id:event.target.id,st:1})
+          axios.post("http://localhost:3001/change",{id:event.target.id,st:1})
         }
       }
       else{
