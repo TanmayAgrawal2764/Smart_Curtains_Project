@@ -8,7 +8,7 @@ function Client(props) {
   let content = [];
   useEffect(() => {
     if(props.login=="Admin" && data!=[]){
-  axios.get("http://localhost:3000/client-select").then((res)=>{
+  axios.get("http://localhost:3001/client-select").then((res)=>{
     // console.log(res.data);
     setdata(()=>{
       // const sortit=Array.from(new Set(res.data));
