@@ -66,7 +66,7 @@ app.post("/get-cities", async (req, res) => {
   })();
 });
 
-const my_AWSAccessKeyId = process.env.MYAWSACCESSKEYID;
+const my_AWSAccessKeyId = "AKIA3FLD2QUFYQBOIELT";
 const my_AWSSecretKey = "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";
 const aws_region = "ap-south-1";
 const empTable1 = "ESP32_dbB";
