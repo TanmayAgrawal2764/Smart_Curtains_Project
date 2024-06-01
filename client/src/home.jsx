@@ -17,7 +17,7 @@ function Home(props) {
       navigate("/")
     }
     else{
-      axios.post("http://localhost:3000/get-name",{username:val.username,password:val.password}).then((res)=>{
+      axios.post("http://localhost:3001/get-name",{username:val.username,password:val.password}).then((res)=>{
         if(res.data.flag=="client"){
           props.setcs(res.data.name);
         setTimeout(() => {
