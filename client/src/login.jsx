@@ -17,7 +17,7 @@ function Login(props) {
   function enter(event){
     event.preventDefault();
     if(event.target.id=="Admin"){
-      axios.post("http://localhost:3000/login",{userinput,flag:"admin"}).then((res)=>{
+      axios.post("http://localhost:3001/login",{userinput,flag:"admin"}).then((res)=>{
         if(res.data=="success"){
           sessionStorage.setItem("user",JSON.stringify(userinput));
           props.setlogin(event.target.id);
@@ -30,7 +30,7 @@ function Login(props) {
       }
     }
     else{
-      axios.post("http://localhost:3000/login",{clientinput,flag:"client"}).then((res)=>{
+      axios.post("http://localhost:3001/login",{clientinput,flag:"client"}).then((res)=>{
         console.log(res.data);
         if(res.data.Name){
           sessionStorage.setItem("user",JSON.stringify(clientinput));
