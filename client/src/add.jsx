@@ -43,14 +43,14 @@ function Add(props) {
 
   const fetchDistricts = (value) => {
     axios
-      .post("http://localhost:3000/get-dist", { dis_name: value })
+      .post("http://localhost:3001/get-dist", { dis_name: value })
       .then((res) => {
         setDistrict(res.data);
       });
   };
 
   const fetchClients = (value) => {
-    axios.get("http://localhost:3000/client-select").then((res) => {
+    axios.get("http://localhost:3001/client-select").then((res) => {
       const filteredClients = res.data.filter((name) =>
         name.toLowerCase().includes(value.toLowerCase())
       );
@@ -59,7 +59,7 @@ function Add(props) {
   };
 
   const fetchLocations = (value) => {
-    axios.get("http://localhost:3000/location-select").then((res) => {
+    axios.get("http://localhost:3001/location-select").then((res) => {
       const filteredLocations = res.data.filter((name) =>
         name.toLowerCase().includes(value.toLowerCase())
       );
@@ -69,7 +69,7 @@ function Add(props) {
 
   const fetchCities = (value) => {
     axios
-      .post("http://localhost:3000/get-cities", { name: value })
+      .post("http://localhost:3001/get-cities", { name: value })
       .then((res) => {
         setCity(res.data.results);
       });
@@ -101,14 +101,14 @@ function Add(props) {
       );
     } else {
       axios
-        .post("http://localhost:3000/devicecheck", { id: macAddress })
+        .post("http://localhost:3001/devicecheck", { id: macAddress })
         .then((res) => {
           if (res.data != "Ok") {
             setFlag("Device with given mac address already exists");
           } else {
             setFlag("Device Added Successfully");
             axios
-              .post("http://localhost:3000/add-data", formValues)
+              .post("http://localhost:3001/add-data", formValues)
               .then((res) => {
               })
               .catch((err) => setFlag("Some Error Occured!"));
