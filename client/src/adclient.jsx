@@ -23,7 +23,7 @@ function Adclient(props) {
   }
   function adcl(event){
     event.preventDefault();
-    axios.post("http://localhost:3000/add-client",formData).then((res)=>{
+    axios.post("http://localhost:3001/add-client",formData).then((res)=>{
       setdone(1);
     }).catch((err)=>{
       setdone(0);
@@ -32,7 +32,7 @@ function Adclient(props) {
   useEffect(()=>{
     if(called==1){
     if(formData.username){
-      axios.post("http://localhost:3000/get-name",{username:formData.username}).then((res)=>{
+      axios.post("http://localhost:3001/get-name",{username:formData.username}).then((res)=>{
         if(res.data=="Invalid"){
           console.log("Ok")
           setchan(1);
